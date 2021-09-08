@@ -1,3 +1,4 @@
+import { CarsComponent, CarFormDialog, CarStatusFormDialog } from './cars/cars.component';
 import { CdkTableModule } from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,26 +11,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterModule } from '@angular/router';
 import 'hammerjs';
 import { DemoMaterialModule } from '../demo-material-module';
-import { ButtonsComponent } from './buttons/buttons.component';
-import { ChipsComponent } from './chips/chips.component';
-import {
-    DialogComponent,
-    DialogOverviewExampleDialogComponent
-} from './dialog/dialog.component';
-import { ExpansionComponent } from './expansion/expansion.component';
-import { GridComponent } from './grid/grid.component';
-import { ListsComponent, UserFormDialog } from './lists/lists.component';
 import { MaterialRoutes } from './material.routing';
-import { MenuComponent } from './menu/menu.component';
-import { ProgressSnipperComponent } from './progress-snipper/progress-snipper.component';
-import { ProgressComponent } from './progress/progress.component';
-import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
-import { SliderComponent } from './slider/slider.component';
-import { SnackbarComponent } from './snackbar/snackbar.component';
-import { StepperComponent } from './stepper/stepper.component';
-import { TabsComponent } from './tabs/tabs.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { TooltipComponent } from './tooltip/tooltip.component';
+import { UserFormDialog, UsersComponent } from './users/users.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -46,7 +30,8 @@ import { TooltipComponent } from './tooltip/tooltip.component';
         FlexLayoutModule,
         CdkTableModule,
         MatDatepickerModule,
-        MatMomentDateModule
+        MatMomentDateModule,
+        SweetAlert2Module
     ],
     providers: [
         {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}},
@@ -65,26 +50,12 @@ import { TooltipComponent } from './tooltip/tooltip.component';
             },
         },
     ],
-    entryComponents: [DialogOverviewExampleDialogComponent],
     declarations: [
-        ButtonsComponent,
-        GridComponent,
-        ListsComponent,
+        UsersComponent,
         UserFormDialog,
-        MenuComponent,
-        TabsComponent,
-        StepperComponent,
-        ExpansionComponent,
-        ChipsComponent,
-        ToolbarComponent,
-        ProgressSnipperComponent,
-        ProgressComponent,
-        DialogComponent,
-        DialogOverviewExampleDialogComponent,
-        TooltipComponent,
-        SnackbarComponent,
-        SliderComponent,
-        SlideToggleComponent
+        CarsComponent,
+        CarFormDialog,
+        CarStatusFormDialog,
     ]
 })
 export class MaterialComponentsModule {}

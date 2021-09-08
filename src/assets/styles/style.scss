@@ -27,3 +27,13 @@ File: scss
 @import 'responsive';
 
 @import "../styles/icons/material-design-iconic-font/css/materialdesignicons.min.css";
+
+.style-success {
+    color: white;
+    background-color: $success;
+}
+
+.style-error {
+    color: white;
+    background-color: $danger;
+}

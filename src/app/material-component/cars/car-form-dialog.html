@@ -1,0 +1,55 @@
+<h1 mat-dialog-title>Vehicle Form</h1>
+<div mat-dialog-content>
+    <form [formGroup]="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Client</mat-label>
+            <input matInput [formControl]="client" [readonly]="data.client ? true : false" required minlength="3" maxlength="250" type="text">
+            <mat-error *ngIf="client.invalid">{{getErrorMessage('client')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Cellphone</mat-label>
+            <input matInput [formControl]="cellphone" required>
+            <mat-hint align="start"> {{ 'Formats: ####-####, ###-####, +### ###-####, +### ####-####'}}</mat-hint>
+            <mat-error *ngIf="cellphone.invalid">{{getErrorMessage('cellphone')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Plates</mat-label>
+            <input matInput [formControl]="plates" required minlength="4" maxlength="8" type="text">
+            <mat-error *ngIf="plates.invalid">{{getErrorMessage('plates')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Rent From:</mat-label>
+            <input matInput [formControl]="rentFrom" [matDatepicker]="fromPicker" required>
+            <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+            <mat-datepicker #fromPicker></mat-datepicker>
+            <mat-error *ngIf="rentFrom.invalid">{{getErrorMessage('rentFrom')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Rent to:</mat-label>
+            <input matInput [formControl]="rentTo" [matDatepicker]="toPicker" required>
+            <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+            <mat-datepicker #toPicker></mat-datepicker>
+            <mat-error *ngIf="rentTo.invalid">{{getErrorMessage('rentTo')}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" *ngIf="data.status">
+            <mat-label>Status</mat-label>
+            <mat-select [formControl]="status" required>
+                <mat-option value="1">{{'Reservado'}}</mat-option>
+                <mat-option value="2">{{'Cancelado'}}</mat-option>
+                <mat-option value="3">{{'Picked Up'}}</mat-option>
+                <mat-option value="4">{{'Delivered'}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="status.invalid">{{getErrorMessage('status')}}</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="submit()" cdkFocusInitial>Ok</button>
+</div>

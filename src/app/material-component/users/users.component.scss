@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+}
+
+.mat-column-address {
+    flex: 0 0 28% ;
+    // width: 10%;
+
+    text-align: justify;
+
+    white-space: unset;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+/* td, th {
+    width: 25%;
+} */
+
+.fab-container {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}

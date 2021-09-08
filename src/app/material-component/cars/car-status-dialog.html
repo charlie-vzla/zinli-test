@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Vehicle Status Form</h1>
+<div mat-dialog-content>
+    <form [formGroup]="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select [formControl]="status" required>
+                <mat-option value="1">{{'Reservado'}}</mat-option>
+                <mat-option value="2">{{'Cancelado'}}</mat-option>
+                <mat-option value="3">{{'Picked Up'}}</mat-option>
+                <mat-option value="4">{{'Delivered'}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="status.invalid">{{getErrorMessage('status')}}</mat-error>
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="submit()" cdkFocusInitial>Ok</button>
+</div>
