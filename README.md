@@ -11,6 +11,9 @@ Para comenzar use las siguientes instrucciones en la línea de comandos:
 git clone https://github.com/charlie-vzla/zinli-webapp.git
 cd zinli-webapp
 
+# Build the angular image, this is necessary for the execution of the app.
+docker build -t angular -f Dockerfile-angular .
+
 # Run docker image width tools (angular, node, npm, etc...)
 docker run --name zinli-webapp -dit \
     -v "$PWD":/home/angular \
